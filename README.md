@@ -14,11 +14,16 @@ Or
 
 ## Usage
 
-var grafty = require('grafty');
+    var Grafty = require('grafty');
 
-grafty('photo.png', 100, function (err, result) {
-  console.log(result);
-});
+    var grafty = new Grafty({
+      width: 30,
+      dir: 'images'
+    });
+
+    grafty('photo.png', function (err, result) {
+      console.log(result);
+    });
 
 ## Tests
 
