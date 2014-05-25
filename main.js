@@ -34,6 +34,7 @@ var Grafty = function (options) {
 
     jp.on('close', function (code) {
       if (code === 0) {
+        console.log(asciiImage.toString())
         next(null, asciiImage.toString());
       } else {
         next(new Error('Error code: ', code));

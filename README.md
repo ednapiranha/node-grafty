@@ -29,21 +29,7 @@ Or
 
 becomes
 
-    '''''''''''cxOOOOOOO00OOOOOOOO
-    '''''''''',oOOOOOkkkOOOOkxkkdo
-    ''';cllccclx0OO00kdxOkxol::;,,
-    ;coxOOOOOOOOOxdddxkOOd:'''''''
-    xOOOOOOO00Okoc:;;;coxkd:,'''''
-    kOOOOOOOkkxdc;;,,,,,;cooc,''''
-    oO0OOkxolool:;;,,,;,',;ldc,'''
-    lkO00Oko::c:,,,''''''',cl:,,',
-    :dkOOOOkl;,,,''''''''',;:,,,,,
-    ;codkkOOd;'''''''''''',,''''''
-    ;:cloxkOx:''''''''''''''',''''
-    :ccccdkOOx:'''''''''''''''''''
-    ;:;,,;lxkxl,''''''''''''''''''
-    ,,''',;lol:'''''''''''''''''''
-    '''''',;:;,'''''''''''''''''''
+![image](https://raw.githubusercontent.com/ednapiranha/node-grafty/master/test/result.jpg)
 
 ## Tests
 
