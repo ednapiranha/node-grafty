@@ -1,6 +1,6 @@
 {
   "name": "grafty",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Converts images to ASCII art",
   "main": "main.js",
   "dependencies": {
