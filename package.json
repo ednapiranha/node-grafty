@@ -1,0 +1,23 @@
+{
+  "name": "grafty",
+  "version": "0.0.1",
+  "description": "Converts images to ASCII art",
+  "main": "main.js",
+  "dependencies": {
+    "uuid": "~1.4.1"
+  },
+  "devDependencies": {
+    "mocha": "~1.18.2",
+    "should": "~3.2.0"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ednapiranha/node-grafty.git"
+  },
+  "keywords": ["ascii", "art", "imagemagick", "jp2a", "jpeg", "jpg"],
+  "author": "Edna Piranha <jen@ednapiranha.com> (http://ednapiranha.com)",
+  "license": "BSD"
+}
