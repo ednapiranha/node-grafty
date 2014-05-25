@@ -7,7 +7,7 @@ var child = require('child_process');
 
 var Grafty = require('../main');
 var grafty = new Grafty({
-  width: 10,
+  width: 30,
   dir: 'test/images'
 });
 
