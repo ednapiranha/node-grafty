@@ -3,7 +3,6 @@
 process.env.NODE_ENV = 'test';
 
 var should = require('should');
-var child = require('child_process');
 
 var Grafty = require('../main');
 var grafty = new Grafty({
@@ -15,10 +14,6 @@ var base64Img = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAMAAABHP
 var invalidBase64Img = 'data:image/png;base64,iVB';
 
 describe('grafty', function () {
-  after(function () {
-    child.exec('rm -rf ./test/images/*.jpg');
-  });
-
   it('should generate a valid image by local file', function (done) {
     grafty.convert('test/test.png', function (err, r) {
       should.not.exist(err);

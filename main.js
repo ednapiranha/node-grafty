@@ -2,11 +2,12 @@
 
 var spawn = require('child_process').spawn;
 var uuid = require('uuid');
+var fs = require('fs');
 
 var FILE_FORMATS = ['jpg', 'jpeg', 'png', 'gif'];
 
 var Grafty = function (options) {
-  var dir = options.dir || 'images';
+  this.dir = options.dir || 0;
   this.width = options.width || 0;
 
   var self = this;
@@ -17,6 +18,10 @@ var Grafty = function (options) {
 
   if (!this.width || isNaN(parseInt(this.width, 10))) {
     throw new Error('Must specify width for image');
+  }
+
+  if (!this.dir) {
+    throw new Error('Must specify a directory');
   }
 
   var createAscii = function (newFile, next) {
@@ -34,7 +39,7 @@ var Grafty = function (options) {
 
     jp.on('close', function (code) {
       if (code === 0) {
-        console.log(asciiImage.toString())
+        fs.unlink(newFile);
         next(null, asciiImage.toString());
       } else {
         next(new Error('Error code: ', code));
@@ -66,7 +71,7 @@ var Grafty = function (options) {
       }
     }
 
-    var newFile = dir + '/' + uuid.v4() + '.jpg';
+    var newFile = this.dir + '/' + uuid.v4() + '.jpg';
     var cv = spawn('convert', [image, '-resize', 'x' + this.width, newFile]);
 
     cv.stdout.on('data', function (data) {
