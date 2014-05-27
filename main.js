@@ -7,8 +7,8 @@ var fs = require('fs');
 var FILE_FORMATS = ['jpg', 'jpeg', 'png', 'gif'];
 
 var Grafty = function (options) {
-  this.dir = options.dir || 0;
   this.width = options.width || 0;
+  this.dir = options.dir || '/tmp';
 
   var self = this;
 
@@ -18,10 +18,6 @@ var Grafty = function (options) {
 
   if (!this.width || isNaN(parseInt(this.width, 10))) {
     throw new Error('Must specify width for image');
-  }
-
-  if (!this.dir) {
-    throw new Error('Must specify a directory');
   }
 
   var createAscii = function (newFile, next) {

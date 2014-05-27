@@ -18,12 +18,14 @@ Or
 
     var grafty = new Grafty({
       width: 30,
-      dir: 'images'
+      dir: '/tmp'
     });
 
     grafty('photo.png', function (err, result) {
       console.log(result);
     });
+
+Note: `dir` defaults to /tmp but if you are on Windows, you should change this to your proper /tmp directory.
 
 ![image](https://raw.githubusercontent.com/ednapiranha/node-grafty/master/test/test.png)
 
