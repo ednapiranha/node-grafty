@@ -6,9 +6,10 @@ var fs = require('fs');
 
 var FILE_FORMATS = ['jpg', 'jpeg', 'png', 'gif'];
 
-var Grafty = function (options) {
+var Grafty = function (options, flags) {
   this.width = options.width || 0;
   this.dir = options.dir || '/tmp';
+  this.flags = flags;
 
   var self = this;
 
@@ -68,7 +69,10 @@ var Grafty = function (options) {
     }
 
     var newFile = this.dir + '/' + uuid.v4() + '.jpg';
-    var cv = spawn('convert', [image, '-resize', 'x' + this.width, newFile]);
+    var args = [image, '-resize', 'x' + this.width]
+    Array.prototype.push.apply(args, this.flags)
+    args.push(newFile)
+    var cv = spawn('convert', args);
 
     cv.stdout.on('data', function (data) {
       cv.stdin.write(data);
