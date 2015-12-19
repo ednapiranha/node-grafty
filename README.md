@@ -21,7 +21,7 @@ Or
       dir: '/tmp'
     });
 
-    grafty('photo.png', function (err, result) {
+    grafty.convert('photo.png', function (err, result) {
       console.log(result);
     });
 
