@@ -53,25 +53,21 @@ var Grafty = function (options, flags) {
 
     image = escape(image).replace(/"+/gi, '');
 
-    if (image.indexOf(':image/') > -1) {
-      image = image.replace('data:', 'inline:data:');
+    var imageFileExt = image.split('.')
+                            .reverse()[0]
+                            .toLowerCase()
+                            .trim();
 
-    } else {
-      var imageFileExt = image.split('.')
-                              .reverse()[0]
-                              .toLowerCase()
-                              .trim();
-
-      if (FILE_FORMATS.indexOf(imageFileExt) === -1) {
-        next(new Error('Invalid file extension - must be jpeg, jpg, gif or png'));
-        return;
-      }
+    if (FILE_FORMATS.indexOf(imageFileExt) === -1) {
+      next(new Error('Invalid file extension - must be jpeg, jpg, gif or png'));
+      return;
     }
 
     var newFile = this.dir + '/' + uuid.v4() + '.jpg';
-    var args = [image, '-resize', 'x' + this.width]
-    Array.prototype.push.apply(args, this.flags)
-    args.push(newFile)
+    var args = [image, '-resize', 'x' + this.width];
+    Array.prototype.push.apply(args, this.flags);
+    args.push(newFile);
+
     var cv = spawn('convert', args);
 
     cv.stdout.on('data', function (data) {
